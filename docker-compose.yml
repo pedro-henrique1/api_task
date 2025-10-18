@@ -7,27 +7,27 @@ services:
     restart: always
     ports:
       - '3000:3000'
-    environment:
-      DB_HOST: mysql
-      DB_PORT: 3306
-      DB_USER: user
-      DB_PASSWORD: password
-      DB_NAME: todo_list
+    env_file:
+      - .env
     depends_on:
       - mysql
+      - redis
 
   mysql:
     image: mysql:8.0
     restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: mysql
-      MYSQL_DATABASE: todo_list
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
+    env_file:
+      - .env
     ports:
       - '3306:3306'
     volumes:
       - mysql-data:/var/lib/mysql
+
+  redis:
+    image: redis:8.0-alpine
+    restart: always
+    ports:
+      - '6378:6379'
 
 volumes:
   mysql-data:
