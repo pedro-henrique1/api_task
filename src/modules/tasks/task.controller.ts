@@ -1,10 +1,9 @@
-import { Controller, Get } from "@nestjs/common";
+import { Controller, Get } from '@nestjs/common';
 
-@Controller("tasks")
+@Controller('tasks')
 export class TaskController {
-    @Get()
-    getTasks(): string {
-        return "List of tasks";
-    }
-
+  @Get()
+  getTasks(): string {
+    return 'List of tasks';
+  }
 }
