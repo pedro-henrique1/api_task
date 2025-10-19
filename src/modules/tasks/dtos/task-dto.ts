@@ -1,15 +1,14 @@
-import { IsBoolean, IsNotEmpty } from "class-validator";
+import { IsBoolean, IsNotEmpty } from 'class-validator';
 
 export class TaskDto {
+  @IsNotEmpty()
+  title: string;
 
-    @IsNotEmpty()
-    title: string;
+  @IsNotEmpty()
+  description: string;
 
-    @IsNotEmpty()
-    description: string;
+  @IsBoolean()
+  isCompleted: boolean;
 
-    @IsBoolean()
-    isCompleted: boolean;
-
-    UserId: string;
+  userId: string;
 }
