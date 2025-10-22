@@ -1,3 +1,3 @@
 export class TaskCompletedDto {
-    isCompleted: boolean;
+  isCompleted: boolean;
 }
