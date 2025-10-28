@@ -16,8 +16,10 @@ services:
   mysql:
     image: mysql:8.0
     restart: always
-    env_file:
-      - .env
+    environment:
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
     ports:
       - '3306:3306'
     volumes:
