@@ -29,10 +29,7 @@ interface PinoRequest extends IncomingMessage {
     LoggerModule.forRoot({
       pinoHttp: {
         level: process.env.NODE_ENV === 'development' ? 'debug' : 'info',
-        transport:
-          process.env.NODE_ENV === 'development'
-            ? { target: 'pino-pretty' }
-            : undefined,
+        transport: process.env.NODE_ENV === 'development' ? { target: 'pino-pretty' } : undefined,
         serializers: {
           req: (req) => ({ method: req.method, url: req.url }),
           res: (res) => ({ statusCode: res.statusCode }),
